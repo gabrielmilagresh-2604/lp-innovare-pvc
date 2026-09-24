@@ -3,14 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Esquadrias de PVC sob medida · Innovare Esquadrias · Vitória-ES</title>
-<meta name="description" content="Janelas e portas de PVC fabricadas sob medida para sua obra ou reforma em Vitória e Grande Vitória. Peça seu orçamento com a Innovare.">
-<meta property="og:title" content="Esquadrias de PVC sob medida · Innovare Esquadrias">
-<meta property="og:description" content="Menos calor, menos ruído, menos manutenção. Esquadrias de PVC Innovare sob medida em Vitória-ES.">
-<meta property="og:image" content="https://innovareesquadrias.com.br/wp-content/uploads/2023/04/esquadrias_topo.jpg">
+<title>Innovare Esquadrias PVC</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap">
 
 <!-- =========================================================
@@ -151,89 +145,88 @@ section{padding:84px 0}
 .sec--dark{background:var(--ink);color:#fff}
 .sec--dark .lead{color:rgba(255,255,255,.72)}
 .sec-head{max-width:62ch;margin-bottom:44px}
-.sec-head--center{margin-left:auto;margin-right:auto;text-align:center}
 
-/* vídeo */
-.videobox{max-width:900px;margin:0 auto;background:#000;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 70px -34px rgba(0,0,0,.9)}
-.videobox video{display:block;width:100%;height:auto;max-height:76vh;margin:0 auto;background:#000}
-
-/* produtos - composição editorial */
-.prods{display:grid;grid-template-columns:1.25fr 1fr;grid-auto-rows:1fr;gap:22px}
-.prod{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 4px rgba(22,22,22,.04),0 22px 44px -34px rgba(22,22,22,.6);display:flex;flex-direction:column}
-.prod--lg{grid-row:span 2}
-.prod--lg .ph{aspect-ratio:4/5}
-.ph{aspect-ratio:16/10;background:linear-gradient(150deg,#2A2724,#4A443C 55%,#7C7268);position:relative;flex:none}
+/* obras */
+.ph{aspect-ratio:4/5;background:linear-gradient(150deg,#2A2724,#4A443C 55%,#7C7268);position:relative}
 .ph img{width:100%;height:100%;object-fit:cover}
-.prod-txt{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
-.prod-txt h3{font-size:20px;margin-bottom:6px}
-.prod-txt p{font-size:14.5px;color:var(--body);margin:0 0 12px}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.tags span{font-size:11.5px;font-weight:600;letter-spacing:.03em;color:var(--gold);background:var(--gold-12);border:1px solid var(--gold-40);padding:5px 10px;border-radius:999px}
-.prod-more{margin-top:auto;border-top:1px solid var(--line);padding-top:12px}
-.prod-more summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--gold);list-style:none;display:flex;align-items:center;gap:6px}
-.prod-more summary::-webkit-details-marker{display:none}
-.prod-more summary span{transition:transform .18s ease}
-.prod-more[open] summary span{transform:translateX(3px)}
-.prod-more-body{padding-top:12px;font-size:13.5px;color:var(--body);display:grid;gap:7px}
-.prod-more-body b{color:var(--ink)}
-@media (max-width:1000px){.prods{grid-template-columns:1fr}.prod--lg{grid-row:auto}.prod--lg .ph{aspect-ratio:16/10}}
 
-/* comparativo */
-.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
-table{border-collapse:collapse;width:100%;min-width:620px;font-size:15.5px}
-th,td{text-align:left;padding:16px 20px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--body)}
-thead th{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink);background:var(--cream)}
-thead th:nth-child(2){color:var(--gold);background:var(--gold-12)}
-tbody td:first-child{font-weight:600;color:var(--ink);width:25%}
-tbody td:nth-child(2){background:var(--gold-12);color:var(--ink)}
-tr:last-child td{border-bottom:none}
+/* galeria de obras — mobile-first: carrossel horizontal com scroll-snap */
+.gallery{
+  display:flex;gap:14px;margin:0 -24px;padding:2px 24px 10px;
+  overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.gallery::-webkit-scrollbar{display:none}
+.gallery .gph{
+  margin:0;flex:0 0 78%;scroll-snap-align:center;aspect-ratio:3/4;
+  border-radius:14px;overflow:hidden;position:relative;
+  box-shadow:0 2px 4px rgba(22,22,22,.04),0 22px 44px -34px rgba(22,22,22,.6);
+}
+.gallery .gph--big{flex-basis:90%;aspect-ratio:4/3}
+.gallery .gph img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* tablet e desktop — grade bento fixa, sem scroll */
+@media (min-width:760px){
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:230px;gap:14px;grid-auto-flow:dense;margin:0;padding:0;overflow:visible}
+  .gallery .gph{aspect-ratio:auto}
+  .gallery .gph--big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  .gallery .gph img{transition:transform .5s ease}
+  .gallery .gph:hover img{transform:scale(1.05)}
+}
+
+/* seção do perfil interativa */
+.split--profile{align-items:start}
+.profile-img{position:relative;border-radius:12px;overflow:hidden}
+.profile-img img{width:100%;display:block}
+.hs{
+  position:absolute;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;
+  background:rgba(11,11,11,.82);border:1.5px solid var(--gold);color:var(--gold);
+  font-family:"Jost",sans-serif;font-size:13px;font-weight:600;line-height:1;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;
+  transition:background .18s ease,color .18s ease,transform .18s ease;
+}
+.hs:hover{background:var(--gold);color:#141413}
+.hs.active{background:var(--gold);color:#141413;transform:translate(-50%,-50%) scale(1.15)}
+.parts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:26px 0 20px}
+.part-btn{
+  text-align:left;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  color:rgba(255,255,255,.82);border-radius:8px;padding:11px 14px;font-family:"Jost",sans-serif;
+  font-size:13.5px;cursor:pointer;transition:background .18s ease,border-color .18s ease,color .18s ease;
+}
+.part-btn:hover{border-color:var(--gold-40)}
+.part-btn.active{background:var(--gold-18);border-color:var(--gold);color:#fff}
+.part-desc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-left:3px solid var(--gold);border-radius:10px;padding:20px 22px}
+.part-desc h3{color:var(--gold);font-size:18px;margin-bottom:8px}
+.part-desc p{color:rgba(255,255,255,.75);font-size:14.5px;margin:0}
+@media (max-width:640px){.parts{grid-template-columns:1fr}}
+
+/* comparativo visual */
+.compare2{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.c2-head{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:20px;padding:16px 24px;background:var(--ink-deep)}
+.c2-h{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.c2-h--pvc{color:var(--gold)}
+.c2-row{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:20px;padding:24px;border-top:1px solid var(--line);align-items:start}
+.c2-row--alt{background:var(--cream)}
+.c2-crit{display:flex;gap:13px;align-items:flex-start}
+.c2-ico{width:30px;height:30px;flex:none;color:var(--gold)}
+.c2-ico svg{width:100%;height:100%}
+.c2-crit b{display:block;font-size:15px;color:var(--ink);margin-bottom:2px}
+.c2-crit span{font-size:12.5px;color:var(--body);line-height:1.4}
+.c2-tag{display:none;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.c2-rate--alu .c2-tag{color:var(--body)}
+.c2-stars{display:block;font-size:16px;letter-spacing:3px;color:var(--gold);margin-bottom:6px}
+.c2-rate--alu .c2-stars{color:var(--ink)}
+.c2-rate b{display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--ink)}
+.c2-rate p{margin:0;color:var(--body);font-size:13.5px;line-height:1.52}
+@media (max-width:760px){
+  .c2-head{display:none}
+  .c2-row{grid-template-columns:1fr;gap:16px}
+  .c2-tag{display:block}
+}
 
 /* bloco imagem + texto */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .split .ph{aspect-ratio:4/3;border-radius:12px;overflow:hidden}
-.speclist{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:14px}
-.speclist li{display:grid;grid-template-columns:20px 1fr;gap:14px;align-items:start;font-size:16px}
-.sec--dark .speclist li{color:rgba(255,255,255,.86)}
-
-/* diagrama interativo do perfil (imagem real em alta) */
-.perfil-visual{display:flex;flex-direction:column;align-items:center;gap:14px}
-.perfil-frame{
-  position:relative;width:100%;max-width:430px;border-radius:16px;padding:14px 16px;
-  background:linear-gradient(160deg,#FFFFFF 0%,#F3F0EA 100%);
-  border:1px solid rgba(184,154,103,.30);
-  box-shadow:0 30px 70px -30px rgba(0,0,0,.95);
-}
-.perfil-frame img{width:100%;display:block;border-radius:8px}
-.perfil-tag{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:500;text-align:center}
-.hot{
-  position:absolute;transform:translate(-50%,-50%);
-  width:26px;height:26px;border-radius:50%;
-  background:var(--ink);color:#fff;border:2px solid var(--gold);
-  font-family:"Jost",sans-serif;font-size:12px;font-weight:700;line-height:1;
-  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
-  box-shadow:0 3px 10px rgba(0,0,0,.4);transition:background .18s ease,transform .18s ease;
-}
-.hot::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--gold-40);animation:hotpulse 2.4s ease-out infinite}
-.hot:hover{transform:translate(-50%,-50%) scale(1.15)}
-.hot.is-active{background:var(--gold);border-color:#fff;transform:translate(-50%,-50%) scale(1.15)}
-.hot.is-active::after{display:none}
-@keyframes hotpulse{0%{opacity:.85;inset:-6px}100%{opacity:0;inset:-15px}}
-
-.diagram-legend{margin-top:26px}
-.dl-list{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
-.dl-item{
-  text-align:left;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
-  color:rgba(255,255,255,.78);border-radius:9px;padding:10px 11px;font-family:"Jost",sans-serif;
-  font-size:12.5px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:8px;line-height:1.2;
-  transition:background .15s ease,border-color .15s ease,color .15s ease;min-height:52px;
-}
-.dl-item b{color:var(--ink);background:var(--gold);font-weight:700;flex:none;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px}
-.dl-item:hover{background:rgba(255,255,255,.09);border-color:var(--gold-40)}
-.dl-item.is-active{background:var(--gold-18);border-color:var(--gold-40);color:#fff}
-.dl-panel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-left:3px solid var(--gold);border-radius:10px;padding:20px 22px;min-height:96px}
-.dl-panel h4{margin:0 0 7px;font-size:17px;color:var(--gold);font-weight:600}
-.dl-panel p{margin:0;font-size:14.5px;color:rgba(255,255,255,.72);line-height:1.55}
-@media (max-width:640px){.dl-list{grid-template-columns:repeat(3,1fr)}.dl-item{font-size:11px;padding:9px 8px;min-height:58px}.hot{width:23px;height:23px;font-size:11px}}
 
 /* objeções */
 .objs{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
@@ -304,14 +297,13 @@ footer .logo{margin-bottom:16px}
 </style>
 </head>
 <body>
-
 <!-- GTM noscript entra aqui -->
 
 <div class="topbar">
   <div class="wrap">
     <a class="logo" href="#topo" aria-label="Innovare Esquadrias">
       <svg viewBox="0 0 512 224" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M91.4,139h-7.8V84.8h7.9L91.4,139L91.4,139z M403,134.9v-23.8h22.9V107H403v-18h24.8v-4.1H403l0,0h-7.9V139h2.2 h5.6h25.4v-4.1L403,134.9L403,134.9z M142.1,129l-38.4-47.7v57.8h4v-40l34.5,42.8L142.1,129L142.1,129z M148.8,94.1l38.4,47.7V84.1 h-4v40l-34.5-42.8L148.8,94.1L148.8,94.1z M254.6,112.1v-0.3c0-15.2-12.4-27.5-27.5-27.5h-3.1c-15.3,0-27.8,12.5-27.8,27.8v0.3 c0,15,12.2,27.3,27.3,27.3h3.7C242.2,139.6,254.6,127.2,254.6,112.1z M225.5,135.9h-0.4c-11.2,0-20.3-10.5-20.3-21.6V110 c0-11.4,9.3-22,20.7-22l0,0c11.3,0,20.5,10.5,20.5,21.8v4.2C246,125.3,236.8,135.9,225.5,135.9z M304.4,84.8h-5.1l-17,40.3l-17-40.3 H256l24.2,57.3l0.1-0.1v0.1L304.4,84.8z M326.5,117H311l-9.2,21.8h-5.1l24.1-57.3v0.1l0.1-0.1l24.1,57.3h-9.2L326.5,117z M324.8,112.8l-6-14.1l-6,14.1H324.8z M372.4,111.4c8.1-1.3,12.2-6.5,12.2-12.7v-0.9c0-7.1-5.1-13.1-18.2-13.1H349l0,0l0,0V139h7.9 v-27.3v-4.2v-19H368c5,0,9.2,4.1,9.2,9.2v0.6c0,5-4.1,9.1-9.1,9.1h-7.4l0,0l2.7,4.2l17.1,27.3h9.4L372.4,111.4z"/></svg>
-      <span class="sub">Esquadrias em PVC<br>Vitória-ES</span>
+      <span class="sub">PVC Innovare<br>Vitória-ES</span>
     </a>
     <a class="btn btn--sm" href="#orcamento">Solicitar orçamento</a>
   </div>
@@ -325,15 +317,15 @@ footer .logo{margin-bottom:16px}
       <div>
         <span class="eyebrow">Esquadrias em PVC · Obra e reforma · Vitória-ES</span>
         <h1>A esquadria certa resolve calor, ruído e manutenção de uma vez só.</h1>
-        <p class="lead">Janelas e portas de PVC fabricadas sob medida para o seu projeto. Projeto, especificação e instalação com a mesma equipe.</p>
+        <p class="lead">Janelas e portas de PVC Innovare fabricadas sob medida para o seu projeto. Projeto, especificação e instalação com a mesma equipe.</p>
         <ul class="hero-list">
           <li><span class="tick"></span><span>Até <b>65% menos gasto</b> com climatização do ambiente</span></li>
-          <li><span class="tick"></span><span>Até <b>45 dB</b> de redução do ruído da rua</span></li>
+          <li><span class="tick"></span><span>Até <b>34 dB</b> de redução do ruído da rua</span></li>
           <li><span class="tick"></span><span><b>40 a 50 anos</b> de vida útil, sem repintura e sem corrosão na maresia</span></li>
         </ul>
         <div class="hero-actions">
           <a class="btn" href="#orcamento">Solicitar orçamento</a>
-          <span class="badge">Desde 2008 em Vitória-ES</span>
+          <span class="badge">PVC Innovare</span>
         </div>
       </div>
 
@@ -370,6 +362,12 @@ footer .logo{margin-bottom:16px}
                 <option>Só trocando as janelas</option><option>Ainda pesquisando</option>
               </select>
             </div>
+            <div><label for="d5">Quantos ambientes</label>
+              <select id="d5">
+                <option>Selecione</option><option>1 a 3</option><option>4 a 8</option>
+                <option>9 ou mais</option><option>Não sei ainda</option>
+              </select>
+            </div>
             <button class="btn btn--full" type="submit">Quero meu orçamento</button>
           </form>
 
@@ -386,143 +384,175 @@ footer .logo{margin-bottom:16px}
 <!-- ==================== CONTADORES ==================== -->
 <div class="counters">
   <div class="wrap counters-grid">
-    <div class="rv"><span class="n">45 dB</span><span class="l">de redução do ruído externo</span></div>
+    <div class="rv"><span class="n">34 dB</span><span class="l">de redução do ruído externo</span></div>
     <div class="rv"><span class="n">65%</span><span class="l">menos gasto com climatização</span></div>
     <div class="rv"><span class="n">40-50</span><span class="l">anos de vida útil do perfil</span></div>
-    <div class="rv"><span class="n">18 anos</span><span class="l">de mercado em Vitória-ES, com pós-venda próprio</span></div>
+    <div class="rv"><span class="n">3 anos</span><span class="l">de Innovare em Vitória, com pós-venda próprio</span></div>
   </div>
 </div>
 
-<!-- ==================== PRODUTOS ==================== -->
+<!-- ==================== NOSSAS OBRAS ==================== -->
 <section class="sec--cream">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="eyebrow">Feito para o seu projeto</span>
-      <h2>O que a gente faz para a sua obra</h2>
-      <p class="lead">Cada esquadria é produzida exclusivamente para a sua obra, respeitando dimensões, tipologias, cores e acabamentos definidos pela arquitetura.</p>
+      <span class="eyebrow">Projetos entregues</span>
+      <h2>Nossas obras</h2>
+      <p class="lead">Cada esquadria é fabricada sob medida para o projeto do cliente. Estas são obras reais, com nossas janelas e portas instaladas.</p>
     </div>
-    <div class="prods">
-      <article class="prod prod--lg rv">
-        <div class="ph"><img src="img/proj-correr.jpg" alt="Sala com esquadrias de correr em PVC Innovare, grandes vãos abertos para a área externa" loading="lazy" onerror="this.remove()"></div>
-        <div class="prod-txt">
-          <h3>Janelas de correr</h3>
-          <p>O modelo mais pedido em reforma: pouca alvenaria, muita luz.</p>
-          <div class="tags"><span>Grandes vãos</span><span>Alta vedação</span><span>Sob medida</span></div>
-          <details class="prod-more">
-            <summary>Conheça a solução <span aria-hidden="true">→</span></summary>
-            <div class="prod-more-body">
-              <p><b>Tipologias:</b> 2 ou 4 folhas, com trilho embutido ou de sobrepor.</p>
-              <p><b>Vidro:</b> simples, duplo (mais isolamento acústico) ou laminado (mais segurança).</p>
-              <p><b>Cores:</b> branco, preto, cinza e linha amadeirada.</p>
-            </div>
-          </details>
-        </div>
-      </article>
-      <article class="prod rv">
-        <div class="ph"><img src="img/proj-maximar.jpg" alt="Sala de estar com esquadrias em PVC Innovare com venezianas para ventilação" loading="lazy" onerror="this.remove()"></div>
-        <div class="prod-txt">
-          <h3>Maxim-ar e basculante</h3>
-          <p>Ventila com a chuva caindo e fecha com vedação total.</p>
-          <div class="tags"><span>Banheiro e cozinha</span><span>Vedação total</span></div>
-          <details class="prod-more">
-            <summary>Conheça a solução <span aria-hidden="true">→</span></summary>
-            <div class="prod-more-body">
-              <p><b>Tipologias:</b> maxim-ar, basculante e combinações com fixo.</p>
-              <p><b>Vidro:</b> simples ou duplo, com opção de venezianas.</p>
-              <p><b>Cores:</b> branco, preto, cinza e linha amadeirada.</p>
-            </div>
-          </details>
-        </div>
-      </article>
-      <article class="prod rv">
-        <div class="ph"><img src="img/proj-porta.jpg" alt="Porta de entrada em PVC Innovare com vidro do piso ao teto" loading="lazy" onerror="this.remove()"></div>
-        <div class="prod-txt">
-          <h3>Portas e portas-balcão</h3>
-          <p>Entrada e área externa com fechamento multiponto.</p>
-          <div class="tags"><span>Perfil reforçado</span><span>Sob medida</span></div>
-          <details class="prod-more">
-            <summary>Conheça a solução <span aria-hidden="true">→</span></summary>
-            <div class="prod-more-body">
-              <p><b>Tipologias:</b> giro, correr e portas-balcão de grandes vãos.</p>
-              <p><b>Vidro:</b> simples, duplo ou laminado de segurança.</p>
-              <p><b>Cores:</b> branco, preto, cinza e linha amadeirada.</p>
-            </div>
-          </details>
-        </div>
-      </article>
+    <div class="gallery">
+      <figure class="gph gph--big rv"><img src="obras/obra-5.jpg" alt="Sala de estar com esquadrias amplas emoldurando vista para a montanha" loading="lazy"></figure>
+      <figure class="gph rv"><img src="obras/obra-2.jpg" alt="Terraço com esquadrias de vidro integrando área interna e externa à noite" loading="lazy"></figure>
+      <figure class="gph rv"><img src="obras/obra-3.jpg" alt="Terraço coberto com esquadrias integrando ambiente à mata nativa" loading="lazy"></figure>
+      <figure class="gph rv"><img src="obras/obra-1.jpg" alt="Terraço com esquadrias amplas emoldurando o pôr do sol" loading="lazy"></figure>
+      <figure class="gph rv"><img src="obras/obra-4.jpg" alt="Banheira com esquadrias piso-teto emoldurando vista para a mata" loading="lazy"></figure>
     </div>
   </div>
 </section>
 
-<!-- ==================== PERFIL INNOVARE (diagrama interativo) ==================== -->
+<!-- ==================== PERFIL ==================== -->
 <section class="sec--dark">
-  <div class="wrap split">
-    <div class="rv perfil-visual">
-      <!-- =========================================================
-           IMAGEM: img/perfil-render.jpg
-           recorte do diagrama oficial da Innovare (445x945)
-           ========================================================= -->
-      <div class="perfil-frame">
-        <img src="img/perfil-render.jpg" alt="Corte do perfil de PVC Innovare" loading="lazy">
-        <button class="hot" type="button" data-item="1" style="left:46.97%;top:8.15%" aria-label="Ferragens em aço inox">1</button>
-        <button class="hot" type="button" data-item="2" style="left:63.15%;top:20.42%" aria-label="Vidro">2</button>
-        <button class="hot" type="button" data-item="3" style="left:15.06%;top:19.47%" aria-label="Baguete de fixação">3</button>
-        <button class="hot" type="button" data-item="4" style="left:67.42%;top:60.42%" aria-label="Perfil folha de PVC">4</button>
-        <button class="hot" type="button" data-item="5" style="left:28.54%;top:72.8%" aria-label="Cores">5</button>
-        <button class="hot" type="button" data-item="6" style="left:36.4%;top:80.53%" aria-label="Câmaras de ar">6</button>
-        <button class="hot" type="button" data-item="7" style="left:88.5%;top:77.25%" aria-label="Junta de borracha">7</button>
-        <button class="hot" type="button" data-item="8" style="left:86.07%;top:82.96%" aria-label="Reforço de aço">8</button>
-        <button class="hot" type="button" data-item="9" style="left:71.91%;top:87.51%" aria-label="Caixilho de PVC">9</button>
-      </div>
-      <span class="perfil-tag">Corte real do perfil · toque nos números</span>
+  <div class="wrap split split--profile">
+    <div class="profile-img rv">
+      <img src="obras/perfil-corte.jpg" alt="Corte do perfil de PVC Innovare, com vidro duplo, câmaras internas e reforço de aço galvanizado" loading="lazy">
+      <button class="hs" style="left:45.2%;top:61.9%" data-part="folha" aria-label="1. Perfil">1</button>
+      <button class="hs" style="left:53.9%;top:32.8%" data-part="vidro" aria-label="2. Vidro duplo insulado">2</button>
+      <button class="hs" style="left:31.2%;top:57.8%" data-part="solda" aria-label="3. Solda por termofusão">3</button>
+      <button class="hs" style="left:21.2%;top:67.0%" data-part="solda" aria-label="3. Solda por termofusão">3</button>
+      <button class="hs" style="left:71.5%;top:55.8%" data-part="baguete" aria-label="4. Baguete">4</button>
+      <button class="hs" style="left:50.3%;top:52.9%" data-part="borracha" aria-label="5. Borracha co-extrusada">5</button>
+      <button class="hs" style="left:34.6%;top:75.6%" data-part="marco" aria-label="7. Perfil do marco">7</button>
+      <button class="hs" style="left:58.3%;top:67.9%" data-part="camaras" aria-label="9. Câmaras de isolamento">9</button>
+      <button class="hs" style="left:52.1%;top:84.4%" data-part="camaras" aria-label="9. Câmaras de isolamento">9</button>
+      <button class="hs" style="left:65.8%;top:67.8%" data-part="reforco" aria-label="10. Reforço de aço galvanizado">10</button>
+      <button class="hs" style="left:59.8%;top:86.4%" data-part="reforco" aria-label="10. Reforço de aço galvanizado">10</button>
     </div>
-
     <div class="rv">
       <span class="eyebrow">Por dentro do perfil</span>
       <h2>Não é PVC qualquer. É PVC de alta performance.</h2>
       <p class="lead">O que está dentro do quadro é o que define se a esquadria vai durar ou virar problema. Toque em cada número para ver a peça.</p>
-      <div class="diagram-legend">
-        <div class="dl-list">
-          <button class="dl-item" type="button" data-item="1"><b>1</b><span>Ferragens</span></button>
-          <button class="dl-item" type="button" data-item="2"><b>2</b><span>Vidro</span></button>
-          <button class="dl-item" type="button" data-item="3"><b>3</b><span>Baguete</span></button>
-          <button class="dl-item" type="button" data-item="4"><b>4</b><span>Perfil folha</span></button>
-          <button class="dl-item" type="button" data-item="5"><b>5</b><span>Cores</span></button>
-          <button class="dl-item" type="button" data-item="6"><b>6</b><span>Câmaras de ar</span></button>
-          <button class="dl-item" type="button" data-item="7"><b>7</b><span>Junta de borracha</span></button>
-          <button class="dl-item" type="button" data-item="8"><b>8</b><span>Reforço de aço</span></button>
-          <button class="dl-item" type="button" data-item="9"><b>9</b><span>Caixilho</span></button>
-        </div>
-        <div class="dl-panel">
-          <h4 id="dlTitle">Ferragens em aço inox</h4>
-          <p id="dlText">Todas as ferragens fornecidas pela Innovare são em aço inox, para maior resistência a climas severos e regiões litorâneas, com fechamento multiponto que dá mais segurança e estanqueidade às janelas e portas.</p>
-        </div>
+      <div class="parts" id="partsGrid">
+        <button class="part-btn active" data-part="folha">1 · Perfil</button>
+        <button class="part-btn" data-part="vidro">2 · Vidro duplo insulado</button>
+        <button class="part-btn" data-part="solda">3 · Solda por termofusão</button>
+        <button class="part-btn" data-part="baguete">4 · Baguete</button>
+        <button class="part-btn" data-part="borracha">5 · Borracha co-extrusada</button>
+        <button class="part-btn" data-part="marco">7 · Perfil do marco</button>
+        <button class="part-btn" data-part="camaras">9 · Câmaras de isolamento</button>
+        <button class="part-btn" data-part="reforco">10 · Reforço de aço galvanizado</button>
+      </div>
+      <div class="part-desc" id="partDesc">
+        <h3 id="partTitle">Perfil</h3>
+        <p id="partText"></p>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var DATA = {
+    folha:{t:"Perfil",d:""},
+    vidro:{t:"Vidro duplo insulado",d:"Duas lâminas de vidro com câmara de ar e espaçador, que é o que gera o isolamento térmico e acústico."},
+    solda:{t:"Solda por termofusão",d:"União dos perfis em PVC garante maior resistência e vedação."},
+    baguete:{t:"Baguete",d:"Perfil que fixa a borda do vidro dentro da folha e esconde o espaçador."},
+    borracha:{t:"Borracha co-extrusada",d:"Vedação aplicada por co-extrusão direto no perfil, sem emendas, garantindo estanqueidade contínua entre o vidro e a folha."},
+    marco:{t:"Perfil do marco",d:"Estrutura fixa, presa à alvenaria, que recebe a folha móvel."},
+    camaras:{t:"Câmaras de isolamento",d:"Múltiplas câmaras internas que aumentam o isolamento térmico e acústico."},
+    reforco:{t:"Reforço de aço galvanizado",d:"Reforço interno protegido dentro do perfil, sem contato com o ar salino. Mais estabilidade e durabilidade."}
+  };
+  var title = document.getElementById('partTitle');
+  var text = document.getElementById('partText');
+  function setActive(key){
+    document.querySelectorAll('.hs,.part-btn').forEach(function(el){
+      el.classList.toggle('active', el.getAttribute('data-part') === key);
+    });
+    if (DATA[key]) { title.textContent = DATA[key].t; text.textContent = DATA[key].d; }
+  }
+  document.querySelectorAll('.hs,.part-btn').forEach(function(el){
+    el.addEventListener('click', function(){ setActive(el.getAttribute('data-part')); });
+  });
+})();
+</script>
 
 <!-- ==================== PVC OU ALUMÍNIO ==================== -->
 <section>
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">A dúvida de sempre</span>
-      <h2>PVC ou alumínio, qual escolher</h2>
-      <p class="lead">As duas são opções sérias. A diferença aparece no conforto do ambiente e no que você gasta depois de instalado, ainda mais em cidade litorânea como Vitória.</p>
+      <h2>PVC ou alumínio? A diferença vai muito além da estética.</h2>
+      <p class="lead">Entenda como cada material se comporta em conforto térmico, isolamento acústico, maresia, manutenção e durabilidade antes de escolher suas esquadrias.</p>
     </div>
-    <div class="tablewrap rv">
-      <table>
-        <thead><tr><th>Critério</th><th>PVC Innovare</th><th>Alumínio comum</th></tr></thead>
-        <tbody>
-          <tr><td>Isolamento térmico</td><td>Alto. O PVC não conduz calor, o ambiente esquenta menos e o ar condicionado trabalha menos.</td><td>Baixo. O metal conduz o calor de fora para dentro.</td></tr>
-          <tr><td>Isolamento acústico</td><td>Até 45 dB, com vedação contínua e opção de vidro duplo.</td><td>Em torno de 22 dB no vidro simples, com folga entre as folhas.</td></tr>
-          <tr><td>Maresia</td><td>Não corrói. O aço de reforço fica protegido dentro do perfil.</td><td>Sofre oxidação e manchas com o tempo perto do mar.</td></tr>
-          <tr><td>Manutenção</td><td>Água e sabão neutro. Não pinta, não descasca.</td><td>Pode exigir repintura, troca de roldana e retoque de acabamento.</td></tr>
-          <tr><td>Vida útil</td><td>40 a 50 anos estimados para o perfil.</td><td>Varia com a linha, a espessura e a exposição.</td></tr>
-          <tr><td>Custo</td><td>Investimento inicial maior, que volta em conta de luz e ausência de manutenção.</td><td>Entrada mais barata, com custo recorrente ao longo dos anos.</td></tr>
-        </tbody>
-      </table>
+    <div class="compare2 rv">
+      <div class="c2-head">
+        <span></span>
+        <span class="c2-h c2-h--pvc">PVC Innovare</span>
+        <span class="c2-h">Alumínio convencional</span>
+      </div>
+
+      <div class="c2-row">
+        <div class="c2-crit">
+          <span class="c2-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 14.6V5a2 2 0 10-4 0v9.6a4 4 0 104 0z" stroke="currentColor" stroke-width="1.6"/><circle cx="10" cy="17" r="1.3" fill="currentColor"/></svg></span>
+          <div><b>Conforto térmico</b><span>Temperatura agradável o ano todo</span></div>
+        </div>
+        <div class="c2-rate c2-rate--pvc"><span class="c2-tag">PVC Innovare</span><span class="c2-stars" aria-label="5 de 5 estrelas">★★★★★</span><b>Excelente</b><p>O PVC conduz muito pouco calor. Com as câmaras internas do perfil, o ambiente esquenta menos e o ar-condicionado trabalha menos.</p></div>
+        <div class="c2-rate c2-rate--alu"><span class="c2-tag">Alumínio</span><span class="c2-stars" aria-label="2 de 5 estrelas">★★☆☆☆</span><b>Regular</b><p>O metal transfere o calor de fora para dentro. Sem ruptura de ponte térmica, o quadro vira uma fonte de calor.</p></div>
+      </div>
+
+      <div class="c2-row c2-row--alt">
+        <div class="c2-crit">
+          <span class="c2-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h3l5 4V5L7 9H4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M16.3 8.7a5 5 0 010 6.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M19 6.2a9 9 0 010 11.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          <div><b>Isolamento acústico</b><span>Mais silêncio, mais bem-estar</span></div>
+        </div>
+        <div class="c2-rate c2-rate--pvc"><span class="c2-tag">PVC Innovare</span><span class="c2-stars" aria-label="5 de 5 estrelas">★★★★★</span><b>Excelente</b><p>34 dB comprovados em ensaio de laboratório com vidro duplo. Composições acústicas específicas elevam esse valor.</p></div>
+        <div class="c2-rate c2-rate--alu"><span class="c2-tag">Alumínio</span><span class="c2-stars" aria-label="3 de 5 estrelas">★★★☆☆</span><b>Bom</b><p>Depende do vidro e da vedação. Folga entre folhas e vidro simples deixam passar boa parte do ruído da rua.</p></div>
+      </div>
+
+      <div class="c2-row">
+        <div class="c2-crit">
+          <span class="c2-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 8.5c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2 14.5c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2 20.5c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          <div><b>Maresia</b><span>Ideal para o litoral</span></div>
+        </div>
+        <div class="c2-rate c2-rate--pvc"><span class="c2-tag">PVC Innovare</span><span class="c2-stars" aria-label="5 de 5 estrelas">★★★★★</span><b>Excelente</b><p>O PVC não oxida. O reforço interno é aço galvanizado e a fixação é em inox, especificados para litoral.</p></div>
+        <div class="c2-rate c2-rate--alu"><span class="c2-tag">Alumínio</span><span class="c2-stars" aria-label="2 de 5 estrelas">★★☆☆☆</span><b>Regular</b><p>Sofre oxidação e manchas com o tempo perto do mar, principalmente nas cantoneiras e roldanas.</p></div>
+      </div>
+
+      <div class="c2-row c2-row--alt">
+        <div class="c2-crit">
+          <span class="c2-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l7 3v5c0 4.8-3 8.5-7 10-4-1.5-7-5.2-7-10V6l7-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+          <div><b>Vedação</b><span>Proteção contra água, pó e ar</span></div>
+        </div>
+        <div class="c2-rate c2-rate--pvc"><span class="c2-tag">PVC Innovare</span><span class="c2-stars" aria-label="5 de 5 estrelas">★★★★★</span><b>Excelente</b><p>Juntas de borracha contínuas e fechamento multiponto: menos entrada de água, pó e ar.</p></div>
+        <div class="c2-rate c2-rate--alu"><span class="c2-tag">Alumínio</span><span class="c2-stars" aria-label="3 de 5 estrelas">★★★☆☆</span><b>Bom</b><p>Vedação por escova ou borracha simples, com pontos de fechamento limitados.</p></div>
+      </div>
+
+      <div class="c2-row">
+        <div class="c2-crit">
+          <span class="c2-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.7 6.3a4 4 0 00-5.4 4.7L4 16.3 7.7 20l5.3-5.3a4 4 0 004.7-5.4l-2.6 2.6-2-2 2.6-2.6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+          <div><b>Manutenção</b><span>Mais praticidade no dia a dia</span></div>
+        </div>
+        <div class="c2-rate c2-rate--pvc"><span class="c2-tag">PVC Innovare</span><span class="c2-stars" aria-label="5 de 5 estrelas">★★★★★</span><b>Excelente</b><p>Água e sabão neutro. Não pinta, não descasca, não precisa de retoque.</p></div>
+        <div class="c2-rate c2-rate--alu"><span class="c2-tag">Alumínio</span><span class="c2-stars" aria-label="3 de 5 estrelas">★★★☆☆</span><b>Bom</b><p>Pode exigir repintura, troca de roldanas e retoque de acabamento ao longo dos anos.</p></div>
+      </div>
+
+      <div class="c2-row c2-row--alt">
+        <div class="c2-crit">
+          <span class="c2-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><b>Vida útil</b><span>Beleza e desempenho por mais tempo</span></div>
+        </div>
+        <div class="c2-rate c2-rate--pvc"><span class="c2-tag">PVC Innovare</span><span class="c2-stars" aria-label="5 de 5 estrelas">★★★★★</span><b>Excelente</b><p>40 a 50 anos estimados para o perfil, segundo o fabricante.</p></div>
+        <div class="c2-rate c2-rate--alu"><span class="c2-tag">Alumínio</span><span class="c2-stars" aria-label="3 de 5 estrelas">★★★☆☆</span><b>Bom</b><p>Varia com a linha, a espessura da parede e a exposição.</p></div>
+      </div>
+
+      <div class="c2-row">
+        <div class="c2-crit">
+          <span class="c2-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><ellipse cx="9" cy="7" rx="6" ry="3" stroke="currentColor" stroke-width="1.6"/><path d="M3 7v4c0 1.66 2.69 3 6 3s6-1.34 6-3V7" stroke="currentColor" stroke-width="1.6"/><path d="M3 11v4c0 1.66 2.69 3 6 3s6-1.34 6-3v-4" stroke="currentColor" stroke-width="1.6"/><path d="M15 10.3c3 .2 6-1 6-2.6 0-1.66-2.69-3-6-3" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <div><b>Custo</b><span>Investimento consciente</span></div>
+        </div>
+        <div class="c2-rate c2-rate--pvc"><span class="c2-tag">PVC Innovare</span><span class="c2-stars" aria-label="4 de 5 estrelas">★★★★☆</span><b>Muito bom</b><p>Investimento inicial maior, que retorna em conta de energia e ausência de manutenção.</p></div>
+        <div class="c2-rate c2-rate--alu"><span class="c2-tag">Alumínio</span><span class="c2-stars" aria-label="4 de 5 estrelas">★★★★☆</span><b>Bom</b><p>Entrada mais barata, com custo recorrente ao longo dos anos.</p></div>
+      </div>
     </div>
+    <p style="font-size:12px;color:var(--body);margin:14px 2px 0">Valores acústicos conforme ensaio ENSATEC 166058. Desempenho final depende da composição de vidro e da instalação.</p>
   </div>
 </section>
 
@@ -534,12 +564,20 @@ footer .logo{margin-bottom:16px}
       <h2>As perguntas que todo cliente faz</h2>
     </div>
     <div class="objs">
-      <div class="obj rv"><h3>Vou ter que quebrar a parede?</h3><p>Na maioria das trocas, não. Fazemos a medição e avaliamos o contramarco existente. Quando dá para instalar sobre a estrutura atual, a obra fica limpa e resolvida em poucas horas por ambiente.</p></div>
-      <div class="obj rv"><h3>PVC amarela com o sol?</h3><p>O perfil Innovare usa formulação com proteção UV, feita para exposição direta. Amarelamento é problema de PVC de baixa qualidade, não do perfil que usamos.</p></div>
-      <div class="obj rv"><h3>É mais caro que alumínio?</h3><p>Na compra, geralmente sim. No uso, costuma sair mais barato: você deixa de gastar com repintura, troca de peça e uma parte relevante da conta de energia.</p></div>
-      <div class="obj rv"><h3>Aguenta a maresia de Vitória?</h3><p>É justamente onde ele mais se destaca. O PVC não oxida, e o reforço de aço galvanizado fica dentro do perfil, sem contato com o ar salino.</p></div>
-      <div class="obj rv"><h3>E em caso de incêndio?</h3><p>O PVC das esquadrias é autoextinguível. Ele não propaga chama: parando a fonte de calor, a queima cessa.</p></div>
-      <div class="obj rv"><h3>Quanto tempo demora?</h3><p>É fabricação sob medida, então tem prazo de produção. Na visita técnica você recebe a data fechada junto com a proposta e acompanha cada etapa até a instalação.</p></div>
+      <div class="obj rv"><h3>Será necessário quebrar a alvenaria?</h3><p>Nem sempre. Cada vão é avaliado tecnicamente antes da instalação. Sempre que possível, a Innovare preserva a alvenaria e os acabamentos existentes, adotando uma solução que minimize interferências e transtornos na obra.</p></div>
+      <div class="obj rv"><h3>O PVC amarela com o sol?</h3><p>Não. Os perfis de PVC utilizados pela Innovare são desenvolvidos para resistir à exposição ao sol e manter sua aparência ao longo dos anos. Eles passam por testes de resistência aos raios UV e são próprios para uso externo, inclusive em regiões de clima quente e alta exposição solar.</p></div>
+      <div class="obj rv"><h3>PVC é resistente ou pode quebrar com facilidade?</h3><p>É resistente. As esquadrias são projetadas para suportar o uso diário e as condições externas. Dependendo do sistema, os perfis também possuem reforços internos que aumentam sua resistência e estabilidade.</p></div>
+      <div class="obj rv"><h3>Como o sistema se comporta na orla de Vitória?</h3><p>É o cenário em que ele mais se diferencia. O PVC é inerte à maresia; o reforço estrutural em aço galvanizado fica no interior do perfil, protegido da exposição direta, e a fixação é em aço inoxidável, especificada para ambiente litorâneo.</p></div>
+      <div class="obj rv"><h3>A esquadria de PVC realmente diminui o barulho?</h3><p>Sim, mas o resultado depende do conjunto completo: perfil, vidro, vedação e tipo de abertura. Com a configuração adequada, é possível reduzir significativamente a entrada de ruídos externos.</p></div>
+      <div class="obj rv"><h3>Qual é o comportamento em caso de incêndio?</h3><p>O PVC das esquadrias é classificado como autoextinguível, classe B1 segundo a norma DIN 4102. O material não propaga chama: afastada a fonte de calor, a combustão cessa.</p></div>
+      <div class="obj rv"><h3>E se a esquadria precisar de manutenção no futuro?</h3><p>Componentes como roldanas, fechaduras e borrachas podem receber manutenção ou ser substituídos quando necessário, sem precisar trocar toda a esquadria.</p></div>
+      <div class="obj rv"><h3>Posso escolher outras cores além do branco?</h3><p>Sim. Existem diferentes opções de acabamento, incluindo tonalidades que reproduzem madeira e cores contemporâneas. As possibilidades dependem da linha escolhida para o projeto.</p></div>
+      <div class="obj rv"><h3>PVC combina com casas de alto padrão?</h3><p>Sim. Hoje existem sistemas com grandes dimensões, diferentes acabamentos e soluções minimalistas, permitindo integrar desempenho e arquitetura.</p></div>
+      <div class="obj rv"><h3>Posso trocar apenas algumas janelas da minha casa?</h3><p>Sim. A substituição pode ser feita por etapas. Nossa equipe avalia o projeto para manter a melhor harmonia possível entre as esquadrias novas e as existentes.</p></div>
+      <div class="obj rv"><h3>Qual é o prazo?</h3><p>Cada esquadria é fabricada sob medida, com prazo de produção definido em projeto. A data de instalação é formalizada junto com a proposta, e o cliente acompanha cada etapa até a entrega.</p></div>
+      <div class="obj rv"><h3>Vou ficar com a casa aberta durante a troca?</h3><p>A instalação é planejada por etapas para reduzir o período em que cada ambiente fica sem fechamento. O prazo exato depende das condições encontradas e do tamanho da esquadria.</p></div>
+      <div class="obj rv"><h3>Posso instalar PVC em apartamento?</h3><p>Sim, desde que sejam respeitadas as regras do condomínio e o padrão da fachada quando aplicável. Nossa equipe pode avaliar as condições do local antes da definição do projeto.</p></div>
+      <div class="obj rv"><h3>Qualquer vidro pode ser usado na esquadria de PVC?</h3><p>Existem diferentes opções de vidro, e a escolha faz bastante diferença. Podemos especificar o conjunto de acordo com o objetivo do ambiente — mais conforto térmico, redução de ruído, segurança ou controle solar.</p></div>
     </div>
   </div>
 </section>
@@ -556,30 +594,6 @@ footer .logo{margin-bottom:16px}
       <div class="step rv"><h3>Visita e medição</h3><p>Medição técnica no local, com recomendação de linha de perfil e de vidro para cada vão.</p></div>
       <div class="step rv"><h3>Proposta</h3><p>Orçamento detalhado por ambiente, com prazo de produção e condição de pagamento definidos.</p></div>
       <div class="step rv"><h3>Produção e instalação</h3><p>Fabricação sob medida e instalação com equipe própria, com conferência de vedação no fim.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== VÍDEO INSTITUCIONAL ==================== -->
-<section class="sec--dark">
-  <div class="wrap">
-    <div class="sec-head sec-head--center rv">
-      <span class="eyebrow">Quem faz</span>
-      <h2>Conheça a Innovare</h2>
-      <p class="lead" style="margin:0 auto">Desde 2008 fabricando esquadrias sob medida em Vitória-ES.</p>
-    </div>
-
-    <!-- =========================================================
-         VÍDEO: arquivo em  video/institucional.mp4
-         capa em  video/institucional-capa.jpg
-         Toca só quando a pessoa clica (não é autoplay/loop, é vídeo com fala)
-         ========================================================= -->
-    <div class="videobox rv">
-      <video controls playsinline preload="metadata"
-             poster="video/institucional-capa.jpg">
-        <source src="video/institucional.mp4" type="video/mp4">
-        Seu navegador não suporta vídeo. <a href="video/institucional.mp4">Baixe o vídeo</a>.
-      </video>
     </div>
   </div>
 </section>
@@ -624,7 +638,7 @@ footer .logo{margin-bottom:16px}
         <a class="logo" href="#topo" aria-label="Innovare Esquadrias">
           <svg viewBox="0 0 512 224" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M91.4,139h-7.8V84.8h7.9L91.4,139L91.4,139z M403,134.9v-23.8h22.9V107H403v-18h24.8v-4.1H403l0,0h-7.9V139h2.2 h5.6h25.4v-4.1L403,134.9L403,134.9z M142.1,129l-38.4-47.7v57.8h4v-40l34.5,42.8L142.1,129L142.1,129z M148.8,94.1l38.4,47.7V84.1 h-4v40l-34.5-42.8L148.8,94.1L148.8,94.1z M254.6,112.1v-0.3c0-15.2-12.4-27.5-27.5-27.5h-3.1c-15.3,0-27.8,12.5-27.8,27.8v0.3 c0,15,12.2,27.3,27.3,27.3h3.7C242.2,139.6,254.6,127.2,254.6,112.1z M225.5,135.9h-0.4c-11.2,0-20.3-10.5-20.3-21.6V110 c0-11.4,9.3-22,20.7-22l0,0c11.3,0,20.5,10.5,20.5,21.8v4.2C246,125.3,236.8,135.9,225.5,135.9z M304.4,84.8h-5.1l-17,40.3l-17-40.3 H256l24.2,57.3l0.1-0.1v0.1L304.4,84.8z M326.5,117H311l-9.2,21.8h-5.1l24.1-57.3v0.1l0.1-0.1l24.1,57.3h-9.2L326.5,117z M324.8,112.8l-6-14.1l-6,14.1H324.8z M372.4,111.4c8.1-1.3,12.2-6.5,12.2-12.7v-0.9c0-7.1-5.1-13.1-18.2-13.1H349l0,0l0,0V139h7.9 v-27.3v-4.2v-19H368c5,0,9.2,4.1,9.2,9.2v0.6c0,5-4.1,9.1-9.1,9.1h-7.4l0,0l2.7,4.2l17.1,27.3h9.4L372.4,111.4z"/></svg>
         </a>
-        <p style="margin:0">Exclusividade e sofisticação em cada projeto. Esquadrias de PVC fabricadas sob medida em Vitória, Espírito Santo. No mercado desde 2008.</p>
+        <p style="margin:0">Exclusividade e sofisticação em cada projeto. Esquadrias de PVC Innovare, fabricadas sob medida em Vitória, Espírito Santo.</p>
       </div>
       <div>
         <h4>Contato</h4>
@@ -649,34 +663,6 @@ footer .logo{margin-bottom:16px}
 
 <script>
 (function(){
-  // 0. Diagrama interativo do perfil
-  var DIAGRAM_DATA = {
-    1: { title: 'Ferragens em aço inox', text: 'Todas as ferragens fornecidas pela Innovare são em aço inox, para maior resistência a climas severos e regiões litorâneas, com fechamento multiponto que dá mais segurança e estanqueidade às janelas e portas.' },
-    2: { title: 'Vidro', text: 'Os perfis Innovare comportam diversas tipologias de vidro. O isolamento térmico e acústico está diretamente ligado ao vidro escolhido.' },
-    3: { title: 'Baguete de fixação', text: 'Com as borrachas de vedação extrusadas de fábrica.' },
-    4: { title: 'Perfil folha de PVC', text: 'O PVC (policloreto de vinila) é um termoplástico resistente à intempérie climática. Os perfis Innovare possuem o selo Greenline, com proteção UV.' },
-    5: { title: 'Cores', text: 'Ampla possibilidade de cores disponíveis, para personalizar o seu projeto.' },
-    6: { title: 'Câmaras de ar internas', text: 'As múltiplas câmaras de ar dentro do perfil são o que gera o isolamento térmico e acústico: o ar parado entre elas barra calor e ruído.' },
-    7: { title: 'Junta de borracha', text: 'Fornece o melhor sistema de vedação do mercado, minimizando a passagem de ar e favorecendo a estanqueidade.' },
-    8: { title: 'Reforço de aço', text: 'Perfis de reforço em aço galvanizado, projetados especialmente para minimizar a deflexão da janela pela ação do vento, disponíveis em várias espessuras para melhor se adaptar às condições climáticas locais.' },
-    9: { title: 'Perfil do caixilho de PVC', text: 'Alta resistência e com proteção UV.' }
-  };
-  var dlTitle = document.getElementById('dlTitle');
-  var dlText = document.getElementById('dlText');
-  function setDiagramItem(n){
-    var dados = DIAGRAM_DATA[n];
-    if (!dados || !dlTitle || !dlText) return;
-    dlTitle.textContent = dados.title;
-    dlText.textContent = dados.text;
-    document.querySelectorAll('.dl-item,.hot').forEach(function(el){
-      el.classList.toggle('is-active', el.getAttribute('data-item') === String(n));
-    });
-  }
-  document.querySelectorAll('.dl-item,.hot').forEach(function(el){
-    el.addEventListener('click', function(){ setDiagramItem(el.getAttribute('data-item')); });
-  });
-  setDiagramItem(1);
-
   // 1. Guarda UTM, gclid e fbclid da primeira visita
   var qs = new URLSearchParams(location.search);
   var keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid'];
@@ -716,5 +702,5 @@ footer .logo{margin-bottom:16px}
 })();
 </script>
 
-</body>
-</html>
+
+</body></html>
