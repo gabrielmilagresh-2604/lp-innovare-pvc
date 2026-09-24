@@ -231,6 +231,13 @@ section{padding:84px 0}
 /* objeções */
 .objs{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .obj{background:#fff;border-radius:12px;padding:26px 28px;border-top:3px solid var(--gold)}
+.objs--more{display:none;margin-top:20px}
+.objs--more.is-open{display:grid}
+.faq-toggle-wrap{text-align:center;margin-top:28px}
+.faq-toggle{display:inline-flex;align-items:center;gap:9px;background:transparent;border:1px solid var(--gold-40);color:var(--ink);border-radius:999px;padding:13px 28px;font-family:"Jost",sans-serif;font-size:14.5px;font-weight:600;letter-spacing:.02em;cursor:pointer;transition:background .18s ease,border-color .18s ease}
+.faq-toggle:hover{background:var(--gold-12);border-color:var(--gold)}
+.faq-toggle svg{width:13px;height:13px;flex:none;transition:transform .25s ease}
+.faq-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
 .obj h3{font-size:19.5px;margin-bottom:10px}
 .obj p{font-size:15.5px;color:var(--body);margin:0}
 
@@ -570,6 +577,9 @@ footer .logo{margin-bottom:16px}
       <div class="obj rv"><h3>Como o sistema se comporta na orla de Vitória?</h3><p>É o cenário em que ele mais se diferencia. O PVC é inerte à maresia; o reforço estrutural em aço galvanizado fica no interior do perfil, protegido da exposição direta, e a fixação é em aço inoxidável, especificada para ambiente litorâneo.</p></div>
       <div class="obj rv"><h3>A esquadria de PVC realmente diminui o barulho?</h3><p>Sim, mas o resultado depende do conjunto completo: perfil, vidro, vedação e tipo de abertura. Com a configuração adequada, é possível reduzir significativamente a entrada de ruídos externos.</p></div>
       <div class="obj rv"><h3>Qual é o comportamento em caso de incêndio?</h3><p>O PVC das esquadrias é classificado como autoextinguível, classe B1 segundo a norma DIN 4102. O material não propaga chama: afastada a fonte de calor, a combustão cessa.</p></div>
+    </div>
+
+    <div class="objs objs--more" id="objsMore">
       <div class="obj rv"><h3>E se a esquadria precisar de manutenção no futuro?</h3><p>Componentes como roldanas, fechaduras e borrachas podem receber manutenção ou ser substituídos quando necessário, sem precisar trocar toda a esquadria.</p></div>
       <div class="obj rv"><h3>Posso escolher outras cores além do branco?</h3><p>Sim. Existem diferentes opções de acabamento, incluindo tonalidades que reproduzem madeira e cores contemporâneas. As possibilidades dependem da linha escolhida para o projeto.</p></div>
       <div class="obj rv"><h3>PVC combina com casas de alto padrão?</h3><p>Sim. Hoje existem sistemas com grandes dimensões, diferentes acabamentos e soluções minimalistas, permitindo integrar desempenho e arquitetura.</p></div>
@@ -579,8 +589,30 @@ footer .logo{margin-bottom:16px}
       <div class="obj rv"><h3>Posso instalar PVC em apartamento?</h3><p>Sim, desde que sejam respeitadas as regras do condomínio e o padrão da fachada quando aplicável. Nossa equipe pode avaliar as condições do local antes da definição do projeto.</p></div>
       <div class="obj rv"><h3>Qualquer vidro pode ser usado na esquadria de PVC?</h3><p>Existem diferentes opções de vidro, e a escolha faz bastante diferença. Podemos especificar o conjunto de acordo com o objetivo do ambiente — mais conforto térmico, redução de ruído, segurança ou controle solar.</p></div>
     </div>
+
+    <div class="faq-toggle-wrap rv">
+      <button class="faq-toggle" id="faqToggle" type="button" aria-expanded="false" aria-controls="objsMore">
+        <span id="faqToggleLabel">Ver mais perguntas</span>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var btn = document.getElementById('faqToggle');
+  var more = document.getElementById('objsMore');
+  var label = document.getElementById('faqToggleLabel');
+  if (!btn || !more) return;
+  btn.addEventListener('click', function(){
+    var open = more.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    label.textContent = open ? 'Ver menos perguntas' : 'Ver mais perguntas';
+    if (!open) { btn.scrollIntoView({block:'center', behavior:'smooth'}); }
+  });
+})();
+</script>
 
 <!-- ==================== COMO FUNCIONA ==================== -->
 <section>
